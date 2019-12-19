@@ -1,8 +1,8 @@
-pragma solidity ^0.5.7;
+pragma solidity ^0.5.0;
 
 contract StandardContract {
 
-    mapping(address => StateVector) public addressToStateVector_;
+    mapping(address => StateVector) addressToStateVector_;
 
     struct StateVector {
         int32 latitude; // in DD(Decimal Degrees) - xx.xxxxx between 90 and -90
