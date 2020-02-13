@@ -1,7 +1,8 @@
 pragma solidity ^0.5.0;
 
+/// @author Julian Sakowski
+/// @title A prototype contract
 contract StandardContract {
-
     mapping(address => StateVector) addressToStateVector_;
 
     struct StateVector {
@@ -12,9 +13,20 @@ contract StandardContract {
         int8 acceleration; // in m/s^2
     }
 
-  function updateState(int32 _latitude, int32 _longitude, uint16 _direction, uint16 _speed, int8 _acceleration) public {
-      StateVector memory stateVector = StateVector(_latitude, _longitude, _direction, _speed, _acceleration);
-      addressToStateVector_[msg.sender] = stateVector;
-  }
+    function updateState(
+        int32 _latitude,
+        int32 _longitude,
+        uint16 _direction,
+        uint16 _speed,
+        int8 _acceleration
+    ) public {
+        StateVector memory stateVector = StateVector(
+            _latitude,
+            _longitude,
+            _direction,
+            _speed,
+            _acceleration
+        );
+        addressToStateVector_[msg.sender] = stateVector;
+    }
 }
-
